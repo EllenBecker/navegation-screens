@@ -1,20 +1,20 @@
-package com.example.navegationscreens
+package com.example.navegationscreens;
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
+import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM1 = "param1";
+private const val ARG_PARAM2 = "param2";
 
 class PrincipalFragment : Fragment() {
 
-    private var param1: String? = null
-    private var param2: String? = null
+    private var param1: String? = null;
+    private var param2: String? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +39,27 @@ class PrincipalFragment : Fragment() {
             val fm = fragmentManager;
             fm!!.beginTransaction().replace(R.id.fragmentContainer,
                 DetalheFragment.newInstance(texto.text.toString(), texto2.text.toString()),"DetalheFragment")
-                .addToBackStack(null).commit()
+                .addToBackStack(null).commit();
+        }
+
+        var buttonGoToCalculator = inflate.findViewById(R.id.button3) as Button;
+
+
+        buttonGoToCalculator.setOnClickListener{
+            val fm = fragmentManager;
+            fm!!.beginTransaction().replace(R.id.fragmentContainer,
+                CalculatorFragment.newInstance(),"CalculatorFragment")
+                .addToBackStack(null).commit();
+        }
+
+        var buttonGoToChurrasCalculator = inflate.findViewById(R.id.button4) as Button;
+
+
+        buttonGoToChurrasCalculator.setOnClickListener{
+            val fm = fragmentManager;
+            fm!!.beginTransaction().replace(R.id.fragmentContainer,
+                ChurrasPrincipalFragment.newInstance(),"ChurrasPrincipalFragment")
+                .addToBackStack(null).commit();
         }
 
         return inflate;
